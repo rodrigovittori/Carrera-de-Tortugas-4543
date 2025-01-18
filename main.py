@@ -1,21 +1,20 @@
 """
-# [M4.L1] Carrera de tortugas - Actividad # 3 "Campo de carrera"
+# [M4.L1] Carrera de tortugas - Actividad # 4 "Dos Jugadores"
 
-# NOTA: Esta es la primera actividad práctica del Proyecto, (1 y 2 son teoría)
+Objetivo: Crear las primeras DOS participantes de nuestra carrera de tortugas
 
-# Objetivo: Crear una tortuga que dibujará la pista de carreras
-
-Paso Nº 1) Importar turtle y crear nuestra tortuga
-Paso Nº 2) Dibujar nuestra pista de carreras
-            -> Definir la cant. de carriles
-            -> Definir el ancho de cada carril
-            *entre ambos valores van a definir la lognitud de la pista*
-
-            -> Definir espacio para corredores
-            *tener en cuenta la cantidad de tortugas que correrán y dejar espacio entre ellas*
+Paso 1: Agregamos variables globales
+Paso 2: Creamos nuestras tortugas y las colocamos en el punto de partida
 """
 
 import turtle
+
+# VARIABLES GLOBALES
+velocidad_corredores = 5 # Controla la velocidad de la animación (no a la que "corren", sino a la que las dibujamos)
+cant_tortugas = 0 #contador con la cantidad de corredores
+distancia_entre_tortugas = 40
+y_inicial_tortugas = 80
+x_inicial_tortugas = -230
 
 # Tortuga que dibuja el tablero (t)
 t = turtle.Turtle()
@@ -42,5 +41,30 @@ for pista in range(1, (1 + cant_secciones_pista)):
     t.seth(0)                   # Acomoda la tortuga para que quede mirando a la dcha
     t.fd(ancho_secciones_pista) # Avanza el ancho hasta la próxima sección
 
+###################################
+
+# CREAR CORREDORES:
+
+# PRIMERA
+cant_tortugas += 1
+primera = turtle.Turtle() # ROJO
+primera.color("crimson")
+primera.shape("turtle")
+primera.speed(0)
+primera.penup()
+#primera.goto(-230, 80)
+primera.goto(x_inicial_tortugas, (y_inicial_tortugas - (distancia_entre_tortugas * (cant_tortugas - 1))))
+primera.speed(velocidad_corredores)
+
+# SEGUNDA
+cant_tortugas += 1
+segunda = turtle.Turtle() # AZUL
+segunda.color("navy")
+segunda.shape("turtle")
+segunda.speed(0)
+segunda.penup()
+#segunda.goto(-230, 40)
+segunda.goto(x_inicial_tortugas, (y_inicial_tortugas - (distancia_entre_tortugas * (cant_tortugas - 1))))
+segunda.speed(velocidad_corredores)
 
 # Colorín colorado el código ha terminado :D
